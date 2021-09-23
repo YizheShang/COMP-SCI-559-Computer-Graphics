@@ -14,62 +14,76 @@ function setUp(){
     var dy = slider2.value;
     
     function drawBody(color){
-      // a thick red line
+      // a thin line
       context.lineWidth = 2;
       context.strokeStyle = color;
+      context.fillStyle = "red";
       
       // the body of the rocket
       context.beginPath();
-      context.moveTo(150,80);
-      context.lineTo(250,80);
-      context.lineTo(250,300);
-      context.lineTo(150,300);
-      context.lineTo(150,80);
-      context.stroke();
+      context.moveTo(150,80);context.lineTo(250,80);
+      context.lineTo(250,300);context.lineTo(150,300);
+      context.lineTo(150,80);context.stroke();
 
       // the head of the rocket
       context.beginPath();
-      context.moveTo(150,80);
-      context.lineTo(200,20);
-      context.lineTo(250,80);
-      context.stroke();
-      context.moveTo(200, 20);
-      context.lineTo(200, 2);
-      context.stroke();
-
+      context.moveTo(150,80);context.lineTo(200,20);
+      context.lineTo(250,80);context.stroke();
+      context.moveTo(200, 20);context.lineTo(200, 2);
+      context.stroke();context.fill();
+      
 
       // Main engines
-      context.moveTo(160, 300);
-      context.lineTo(150, 320);
-      context.lineTo(180, 320);
-      context.lineTo(170, 300);
-      context.lineTo(230, 300);
-      context.lineTo(220, 320);
-      context.lineTo(250, 320);
-      context.lineTo(240, 300);
+      context.moveTo(160, 300);context.lineTo(150, 320);
+      context.lineTo(180, 320); context.lineTo(170, 300);
+      context.lineTo(230, 300);context.lineTo(220, 320);
+      context.lineTo(250, 320);context.lineTo(240, 300);
       context.stroke();
 
       // Left engine
-      context.moveTo(150, 300);
-      context.lineTo(120, 300);
-      context.lineTo(120, 230);
-      context.lineTo(150, 230);
-      context.lineTo(150, 300);
+      context.beginPath();
+      context.moveTo(150, 300);context.lineTo(120, 300);
+      context.lineTo(120, 230);context.lineTo(150, 230);
+      context.lineTo(150, 300);context.fillStyle = "blue";
       context.stroke();
 
       // Right engine
-      context.moveTo(250, 300);
-      context.lineTo(280, 300);
-      context.lineTo(280, 230);
-      context.lineTo(250, 230);
-      context.lineTo(250, 300);
-      context.stroke();
+      context.moveTo(250, 300);context.lineTo(280, 300);
+      context.lineTo(280, 230);context.lineTo(250, 230);
+      context.lineTo(250, 300);context.stroke();
+      context.fill()
       }
+    
+    function drawFlames(color){
+      context.lineWidth = 1;
+      context.strokeStyle = color;
+      context.fillStyle = "yellow";
+      
+      context.beginPath();
+      context.moveTo(150, 320);context.lineTo(165, 370);
+      context.lineTo(180, 320);context.lineTo(150, 320);
+      context.stroke();context.fill();
+      
+      context.moveTo(220, 320);context.lineTo(235, 370);
+      context.lineTo(250, 320);context.lineTo(220, 320);
+      context.stroke();context.fill();
+      
+      context.moveTo(150, 300);context.lineTo(135, 340);
+      context.lineTo(120, 300);context.lineTo(150, 300);
+      context.stroke();context.fill();
+      
+      context.moveTo(250, 300);context.lineTo(265, 340);
+      context.lineTo(280, 300);context.lineTo(250, 300);
+      context.stroke();context.fill();
+      
+      
+    }
     
     context.save();
     context.translate(dx,dy);
 //    context.scale(1,-1);
-    drawBody("red");
+    drawBody("black");
+    drawFlames("red");
     context.restore();
     
   }
@@ -78,13 +92,3 @@ function setUp(){
   draw();
 }
 window.onload = setUp;
-
-
-
-
-
-
-
-
-
-

@@ -9,6 +9,7 @@ function setUp(){
   function draw(){
     var context = canvas.getContext('2d');
     canvas.width = canvas.width;
+    canvas.style.background = "lightblue";
     // use the sliders to get various parameters
     var dx = slider1.value;
     var dy = slider2.value;
@@ -17,28 +18,34 @@ function setUp(){
       // a thin line
       context.lineWidth = 2;
       context.strokeStyle = color;
-      context.fillStyle = "red";
       
       // the body of the rocket
-      context.beginPath();
+      context.beginPath();context.fillStyle = "white";
       context.moveTo(150,80);context.lineTo(250,80);
       context.lineTo(250,300);context.lineTo(150,300);
       context.lineTo(150,80);context.stroke();
+      context.fill();
 
       // the head of the rocket
-      context.beginPath();
+      context.beginPath();context.fillStyle = "red";
       context.moveTo(150,80);context.lineTo(200,20);
       context.lineTo(250,80);context.stroke();
       context.moveTo(200, 20);context.lineTo(200, 2);
       context.stroke();context.fill();
       
-
+      // window
+      context.beginPath();
+      context.rect(175, 100, 50, 50);
+      context.stroke();context.fillStyle = "green";
+      context.fill();
+      
       // Main engines
+      context.beginPath();context.fillStyle = "black";
       context.moveTo(160, 300);context.lineTo(150, 320);
       context.lineTo(180, 320); context.lineTo(170, 300);
       context.lineTo(230, 300);context.lineTo(220, 320);
       context.lineTo(250, 320);context.lineTo(240, 300);
-      context.stroke();
+      context.stroke();context.fill();
 
       // Left engine
       context.beginPath();

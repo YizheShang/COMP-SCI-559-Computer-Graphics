@@ -87,8 +87,8 @@ function setUp(){
     }
     
     context.save();
+    
     context.translate(dx,dy);
-//    context.scale(1,-1);
     drawBody("black");
     drawFlames("red");
     context.restore();
